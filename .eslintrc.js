@@ -13,6 +13,7 @@ module.exports = {
     es6: true,
   },
   globals: {
+    Response: true,
   },
   extends: ['airbnb'],
   parserOptions: {
@@ -30,6 +31,11 @@ module.exports = {
     'react',
   ],
   rules: {
+    'import/no-extraneous-dependencies': [
+      'error', {
+        'devDependencies': ['**/*.test.js', '**/*.spec.js']
+      }
+    ],
     'jsx-quotes': ['error', 'prefer-double'],
     'babel/flow-object-type': 1,
     'babel/generator-star-spacing': 0,
