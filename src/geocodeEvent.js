@@ -7,7 +7,7 @@ const googleMapsClient = require('@google/maps').createClient({
   key: API_KEY,
 });
 
-export function geocodeAddress(address: string) {
+export function geocodeAddress(address: ?string) {
   return new Promise((resolve, reject) => {
     googleMapsClient.geocode({
       address,
@@ -25,7 +25,24 @@ export function geocodeAddress(address: string) {
   });
 }
 
-export function geocodeEvents(events: Array<any>) {
+export function geocodeEvents(events: Array<Event>) {
+  return new Promise((resolve, reject) => {
+    const promises = events.map((event: Event) =>
+      new Promise((res, rej) => {
+        geocodeAddress(event.contactInfo.address)
+          .then((latLng: LatLng) => {
+            res({ ...event, latLng });
+          })
+          .catch(err => {
+            rej(err);
+          });
+      }));
 
+    Promise.all(promises).then(geocodedEvents => {
+      resolve(geocodedEvents);
+    }).catch(err => {
+      reject(err);
+    });
+  });
 }
 export default geocodeEvents;

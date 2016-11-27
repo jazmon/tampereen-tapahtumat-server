@@ -4,6 +4,11 @@
 // Geocode service
 // _____________________
 
+declare type LatLng = {
+  latitude: number;
+  longitude: number;
+};
+
 declare type GeoCode = {
   position: {lat: number; lng: number};
   formattedAddress: string; // the full address

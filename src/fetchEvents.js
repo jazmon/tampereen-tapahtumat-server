@@ -21,6 +21,13 @@ export function checkStatus(response: Response) {
   error.response = response;
   throw error;
 }
+
+type AIEType = {
+  obj: Object;
+  prop: string;
+  str: string;
+  spacer: string;
+};
 // If object has a property, append string with it using a spacer
 export const applyIfExist = ({ obj, prop, str = '', spacer = '' }: AIEType): string => {
   if (obj && {}.hasOwnProperty.call(obj, prop) && !!obj[prop]) {
@@ -31,17 +38,18 @@ export const applyIfExist = ({ obj, prop, str = '', spacer = '' }: AIEType): str
 
 export function parseAddress(contactInfo: VTContactInfo) {
   let address: string = '';
-  console.log('contactInfo', contactInfo);
-  address = applyIfExist({ contactInfo, prop: 'address', str: address, spacer: '' });
-  address = applyIfExist({ contactInfo, prop: 'postcode', str: address, spacer: ' ' });
-  address += ', Tampere';
-  // NOTE sometimes the api doesn't specify the city, so the above is used..
-  // address = applyIfExist({ obj, prop: 'city', str: address, spacer: ' ' });
-  // address = applyIfExist({ obj, prop: 'country', str: address, spacer: ' ' });
+  address = applyIfExist({ obj: contactInfo, prop: 'address', str: address, spacer: '' });
+  address = applyIfExist({ obj: contactInfo, prop: 'postcode', str: address, spacer: ', ' });
+  if (!contactInfo.city) {
+    address += ' Tampere';
+  } else {
+    address = applyIfExist({ obj: contactInfo, prop: 'city', str: address, spacer: ' ' });
+  }
   return address;
 }
 
 export function parseEvent(vtEvent: VTEvent): Event {
+  const address: string = parseAddress(vtEvent.contact_info);
   const event: Event = {
     id: `event-${vtEvent.item_id}`,
     title: vtEvent.title,
@@ -49,6 +57,7 @@ export function parseEvent(vtEvent: VTEvent): Event {
     start: vtEvent.start_datetime || 0,
     end: vtEvent.end_datetime || 0,
     free: vtEvent.is_free,
+    ticketLink: vtEvent.ticket_link,
     contactInfo: {
       address,
       email: vtEvent.contact_info.email,
@@ -66,6 +75,7 @@ export function parseEvent(vtEvent: VTEvent): Event {
       title: _.get(vtEvent, 'image.title', null),
       uri: _.get(vtEvent, 'image.src', null),
     },
+    latlng: null,
   };
   return event;
 }

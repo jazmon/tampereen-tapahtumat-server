@@ -17,7 +17,7 @@ chai.use(chaiAsPromised);
 chai.should();
 
 const debug = { hello: 'world' };
-console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+
 describe('test http shite', () => {
   describe('applyIfExist', () => {
     it('should apply prop from object to string', () => {
@@ -36,11 +36,47 @@ describe('test http shite', () => {
       };
       applyIfExist({ obj, prop: 'baz', str: input, spacer: ' ' }).should.equal(expected);
     });
-    it('should use custom spacer');
+    it('should use default params', () => {
+      const expected = 'bar';
+      const obj = {
+        baz: 'bar',
+      };
+      applyIfExist({ obj, prop: 'baz' }).should.equal(expected);
+    });
   });
 
   describe('parseEvent', () => {
-    it('should parse correctly');
+    it('should parse correctly', () => {
+      const input = mockResponse[0];
+      const expected = {
+        id: 'event-15774',
+        title: 'The Tampere Christmas Market',
+        description: 'The Christmas Market offers relaxing moments and a merry atmosphere, performances to raise your holiday spirits to the fullest. The many artists and craftspeople present and sell their unique Finnish artworks and products. At Keskustori. Open from 3rd to 22nd December 2016. Opening hours: weekdays from 10 am to 7 pm, on Sundays from 12 am to 7 pm. 6th December: from 12 am to 8 pm.',
+        start: 0,
+        end: 0,
+        free: true,
+        ticketLink: null,
+        contactInfo: {
+          address: 'Keskustori Tampere',
+          email: null,
+          phone: null,
+          link: 'http://tampereenjoulutori.fi/en',
+        },
+        formContactInfo: {
+          email: null,
+          phone: null,
+          name: null,
+          jobTitle: null,
+        },
+        tags: ['market'],
+        image: {
+          title: 'joulutori.jpg',
+          uri: 'http://visittampere.fi/media/f8e07ef0-8c60-11e6-800a-97b270bd95b5.jpg',
+        },
+        latlng: null,
+      };
+      parseEvent(input).should.deep.equal(expected);
+    });
   });
 
   describe('parseAddress', () => {
@@ -51,7 +87,16 @@ describe('test http shite', () => {
         city: 'Tampere',
         postcode: '33520',
       };
-      // parseAddress(input).should.equal(expected);
+      parseAddress(input).should.equal(expected);
+    });
+    it('should use default city if one not provided', () => {
+      const expected = 'Kuntokatu 3, 33520 Tampere';
+      const input: VTContactInfo = {
+        address: 'Kuntokatu 3',
+        city: null,
+        postcode: '33520',
+      };
+      parseAddress(input).should.equal(expected);
     });
   });
 
@@ -82,14 +127,17 @@ describe('test http shite', () => {
 
       fetchMock.mock('*', { status: 404, throws: 'lol' });
     });
+
     after(() => {
       fetchMock.restore();
     });
+
     it('should fetch events', (done) => {
       const promise = fetchEvents();
       fetchMock.called('*').should.equal(true);
       promise.should.eventually.to.eql(mockResponse).notify(done);
     });
+
     it('should catch errors', (done) => {
       const promise = fetchEvents();
       promise.should.eventually.be.rejectedWith('lol').notify(done);
@@ -102,6 +150,7 @@ describe('test http shite', () => {
       const result = checkStatus(response);
       result.should.equal(response);
     });
+
     it('should throw if error response', () => {
       const response = { status: 500, statusText: 'error' };
       checkStatus.bind(checkStatus, response).should.throw('error');
@@ -124,6 +173,7 @@ describe('test http shite', () => {
       const result = await parseJSON(response);
       result.should.equal(expected);
     });
+
     it('should throw if invalid JSON', async () => {
       const response = {
         status: 200,
@@ -142,6 +192,7 @@ describe('test http shite', () => {
     it('should not throw if no events', () => {
       multiplySingleDateEvents([]).should.have.lengthOf(0);
     });
+
     it('should return more events if one multiple datetime was given', () => {
       const events = [0, 1].map((e, i) => ({
         single_datetime: i % 2 === 0,
@@ -159,6 +210,7 @@ describe('test http shite', () => {
 
       multiplySingleDateEvents(events).should.have.length.above(events.length);
     });
+
     it('should return the same amount if no multiple datetime events were given', () => {
       const events = [0, 1].map((e, i) => ({
         single_datetime: true,

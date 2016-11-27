@@ -2,9 +2,13 @@
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 
+import mockResponse from '../mockdata/mockresponse.json';
 import {
   geocodeAddress,
+  geocodeEvents,
 } from './geocodeEvent';
+
+import { parseEvent } from './fetchEvents';
 
 chai.use(chaiAsPromised);
 chai.should();
@@ -22,7 +26,10 @@ describe('geocoding', () => {
   });
 
   describe('geocode all events', () => {
-    it('should geocode all events');
+    it('should geocode all events', (done) => {
+      const input = mockResponse.map(parseEvent);
+      geocodeEvents(input).should.eventually.be.fulfilled.notify(done);
+    });
   });
 
   describe('construct address', () => {

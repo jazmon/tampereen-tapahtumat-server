@@ -22,7 +22,7 @@ module.exports = {
     ecmaVersion: 6,
     impliedStrict: false,
     ecmaFeatures: {
-      experimentalObjectRestSpread: false,
+      experimentalObjectRestSpread: true,
       jsx: false,
     }
   },
