@@ -1,3 +1,4 @@
+// @flow
 require('dotenv').config();
 
 const API_KEY = process.env.GOOGLE_API_KEY;
@@ -6,7 +7,7 @@ const googleMapsClient = require('@google/maps').createClient({
   key: API_KEY,
 });
 
-function geocodeAddress(address) {
+export function geocodeAddress(address: string) {
   return new Promise((resolve, reject) => {
     googleMapsClient.geocode({
       address,
@@ -24,9 +25,7 @@ function geocodeAddress(address) {
   });
 }
 
-// function geocodeEvents(events) {
-//
-// }
-export default {
-  geocodeAddress,
-};
+export function geocodeEvents(events: Array<any>) {
+
+}
+export default geocodeEvents;

@@ -7,5 +7,12 @@
     }],
     "stage-3"
   ],
-  "plugins": ["transform-flow-strip-types"]
+  "plugins": ["transform-flow-strip-types", "lodash"],
+  "env": {
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  }
 }

@@ -1,22 +1,60 @@
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
-// const fetch = require('node-fetch');
-const fetchMock = require('fetch-mock');
-// const mockery = require('mockery');
-const mockResponse = require('../mockdata/mockresponse');
-const {
+import chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+import fetchMock from 'fetch-mock';
+import mockResponse from '../mockdata/mockresponse.json';
+
+import {
   checkStatus,
   parseJSON,
   multiplySingleDateEvents,
   fetchEvents,
-} = require('./fetchEvents');
+  parseAddress,
+  applyIfExist,
+  parseEvent,
+} from './fetchEvents';
 
 chai.use(chaiAsPromised);
 chai.should();
 
 const debug = { hello: 'world' };
-
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 describe('test http shite', () => {
+  describe('applyIfExist', () => {
+    it('should apply prop from object to string', () => {
+      const expected = 'foo bar';
+      const input = 'foo';
+      const obj = {
+        baz: 'bar',
+      };
+      applyIfExist({ obj, prop: 'baz', str: input, spacer: ' ' }).should.equal(expected);
+    });
+    it('should return string back if no prop in object', () => {
+      const expected = 'foo';
+      const input = 'foo';
+      const obj = {
+        lol: 'bar',
+      };
+      applyIfExist({ obj, prop: 'baz', str: input, spacer: ' ' }).should.equal(expected);
+    });
+    it('should use custom spacer');
+  });
+
+  describe('parseEvent', () => {
+    it('should parse correctly');
+  });
+
+  describe('parseAddress', () => {
+    it('should parse correctly', () => {
+      const expected = 'Kuntokatu 3, 33520 Tampere';
+      const input: VTContactInfo = {
+        address: 'Kuntokatu 3',
+        city: 'Tampere',
+        postcode: '33520',
+      };
+      // parseAddress(input).should.equal(expected);
+    });
+  });
+
   describe('fetchEvents', () => {
     before(() => {
       const response = {
