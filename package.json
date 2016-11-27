@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node ./bin/www",
+    "build": "babel --ignore *.spec.js -d ./build ./src -s",
     "test": "nyc --reporter=html --reporter=text mocha src/**/*.spec.js",
-    "clean": "rimraf dist && mkdir dist",
+    "clean": "rimraf build && mkdir build",
     "test:watch": "chokidar \"src/**/*.js\" \"test/**/*.js\" -c \"npm test\"",
     "lint": "node_modules/.bin/eslint src",
     "lint:fix": "node_modules/.bin/eslint src --fix"
@@ -16,6 +17,12 @@
   "license": "MIT",
   "dependencies": {
     "@google/maps": "^0.3.0",
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-flow-strip-types": "^6.18.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-env": "^0.0.9",
+    "babel-preset-stage-3": "^6.17.0",
+    "babel-register": "^6.18.0",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "connect-timeout": "^1.8.0",

@@ -27,8 +27,6 @@ function geocodeAddress(address) {
 // function geocodeEvents(events) {
 //
 // }
-
-module.exports = {
+export default {
   geocodeAddress,
-  // geocodeEvents,
 };

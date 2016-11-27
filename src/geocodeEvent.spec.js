@@ -1,8 +1,10 @@
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
-const {
+// const chai = require('chai');
+import chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+
+import {
   geocodeAddress,
-} = require('./geocodeEvent');
+} from './geocodeEvent';
 
 chai.use(chaiAsPromised);
 chai.should();
