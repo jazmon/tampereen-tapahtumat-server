@@ -1,7 +1,8 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
-
+// const fetch = require('node-fetch');
 const fetchMock = require('fetch-mock');
+// const mockery = require('mockery');
 const mockResponse = require('../mockdata/mockresponse');
 const {
   checkStatus,
@@ -17,12 +18,9 @@ const debug = { hello: 'world' };
 
 describe('test http shite', () => {
   describe('fetchEvents', () => {
-    // let server;
     before(() => {
-      // server = sinon.fakeServer.create();
-      // fetchMock.get('*', mockResponse);
       const response = {
-        body: JSON.stringify(mockResponse),
+        body: mockResponse,
         headers: {
           pragma: 'no-cache',
           date: 'Sun, 27 Nov 2016 17:30:40 GMT',
@@ -41,26 +39,23 @@ describe('test http shite', () => {
         method: 'GET',
         matcher: '*',
         times: 1,
-
       };
       fetchMock.mock(options);
 
       fetchMock.mock('*', { status: 404, throws: 'lol' });
     });
     after(() => {
-      // server.restore();
       fetchMock.restore();
     });
     it('should fetch events', (done) => {
       const promise = fetchEvents();
-
-      // promise.should.eventually.equal(mockResponse).notify(done);
-      promise.should.eventually.be.fulfilled.notify(done);
+      fetchMock.called('*').should.equal(true);
+      promise.should.eventually.to.eql(mockResponse).notify(done);
     });
-    // it('should catch errors', (done) => {
-    //   const promise = fetchEvents();
-    //   promise.should.eventually.be.rejectedWith('lol').notify(done);
-    // });
+    it('should catch errors', (done) => {
+      const promise = fetchEvents();
+      promise.should.eventually.be.rejectedWith('lol').notify(done);
+    });
   });
 
   describe('checkStatus', () => {
@@ -71,9 +66,7 @@ describe('test http shite', () => {
     });
     it('should throw if error response', () => {
       const response = { status: 500, statusText: 'error' };
-      // const result = checkStatus(response);
       checkStatus.bind(checkStatus, response).should.throw('error');
-      // result.should.equal(response);
     });
   });
 

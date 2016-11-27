@@ -1,7 +1,5 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
-// const fetchMock = require('fetch-mock');
-// const mockResponse = require('../mockdata/mockresponse');
 const {
   geocodeAddress,
 } = require('./geocodeEvent');

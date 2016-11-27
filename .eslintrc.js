@@ -14,6 +14,7 @@ module.exports = {
   },
   globals: {
     Response: true,
+    fetch: true,
   },
   extends: ['airbnb'],
   parserOptions: {

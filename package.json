@@ -25,10 +25,9 @@
     "express-slash": "^2.0.1",
     "graphql": "^0.8.2",
     "helmet": "^3.1.0",
+    "isomorphic-fetch": "^2.2.1",
     "moment": "^2.17.0",
     "morgan": "^1.7.0",
-    "node-fetch": "^1.6.3",
-    "node-geocoder": "^3.15.1",
     "response-time": "^2.3.2",
     "rimraf": "^2.5.4",
     "view-helpers": "^0.1.5"

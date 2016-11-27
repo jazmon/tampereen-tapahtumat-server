@@ -1,5 +1,6 @@
 const moment = require('moment');
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
+require('isomorphic-fetch');
 
 const apiLocale = 'en';
 const API_URL_BASE = 'http://visittampere.fi/api/search?type=event';
