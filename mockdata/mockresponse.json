@@ -1,0 +1,263 @@
+[
+  {
+    "item_id": 15774,
+    "lang": "en",
+    "title": "The Tampere Christmas Market",
+    "description": "The Christmas Market offers relaxing moments and a merry atmosphere, performances to raise your holiday spirits to the fullest. The many artists and craftspeople present and sell their unique Finnish artworks and products. At Keskustori. Open from 3rd to 22nd December 2016. Opening hours: weekdays from 10 am to 7 pm, on Sundays from 12 am to 7 pm. 6th December: from 12 am to 8 pm.",
+    "contact_info": {
+      "id": 9884,
+      "address": "Keskustori",
+      "postcode": null,
+      "city": null,
+      "country": null,
+      "phone": null,
+      "email": null,
+      "link": "http://tampereenjoulutori.fi/en",
+      "company_name": null,
+      "company_id": null,
+      "place_of_business": null
+    },
+    "created_at": 1476270835685,
+    "updated_at": 1479127176362,
+    "image": {
+      "item_id": 15643,
+      "src": "http://visittampere.fi/media/f8e07ef0-8c60-11e6-800a-97b270bd95b5.jpg",
+      "title": "joulutori.jpg"
+    },
+    "start_datetime": null,
+    "end_datetime": null,
+    "type": "event",
+    "tags": [
+      "market"
+    ],
+    "is_free": true,
+    "ticket_link": null,
+    "is_public": true,
+    "has_articles": true,
+    "single_datetime": false,
+    "times": [
+      {
+        "id": 8505,
+        "start_datetime": 1480755600000,
+        "end_datetime": 1480788000000
+      },
+      {
+        "id": 8506,
+        "start_datetime": 1480845600000,
+        "end_datetime": 1480870800000
+      },
+      {
+        "id": 8507,
+        "start_datetime": 1480928400000,
+        "end_datetime": 1480960800000
+      },
+      {
+        "id": 8508,
+        "start_datetime": 1481014800000,
+        "end_datetime": 1481047200000
+      },
+      {
+        "id": 8509,
+        "start_datetime": 1481101200000,
+        "end_datetime": 1481133600000
+      },
+      {
+        "id": 8510,
+        "start_datetime": 1481187600000,
+        "end_datetime": 1481220000000
+      },
+      {
+        "id": 8511,
+        "start_datetime": 1481274000000,
+        "end_datetime": 1481306400000
+      },
+      {
+        "id": 8512,
+        "start_datetime": 1481360400000,
+        "end_datetime": 1481392800000
+      },
+      {
+        "id": 8513,
+        "start_datetime": 1481450400000,
+        "end_datetime": 1481475600000
+      },
+      {
+        "id": 8514,
+        "start_datetime": 1481533200000,
+        "end_datetime": 1481565600000
+      },
+      {
+        "id": 8515,
+        "start_datetime": 1481619600000,
+        "end_datetime": 1481652000000
+      },
+      {
+        "id": 8516,
+        "start_datetime": 1481706000000,
+        "end_datetime": 1481738400000
+      },
+      {
+        "id": 8519,
+        "start_datetime": 1481792400000,
+        "end_datetime": 1481824800000
+      },
+      {
+        "id": 8520,
+        "start_datetime": 1481878800000,
+        "end_datetime": 1481911200000
+      },
+      {
+        "id": 8521,
+        "start_datetime": 1481965200000,
+        "end_datetime": 1481997600000
+      },
+      {
+        "id": 8522,
+        "start_datetime": 1482055200000,
+        "end_datetime": 1482080400000
+      },
+      {
+        "id": 8523,
+        "start_datetime": 1482138000000,
+        "end_datetime": 1482170400000
+      },
+      {
+        "id": 8524,
+        "start_datetime": 1482224400000,
+        "end_datetime": 1482256800000
+      },
+      {
+        "id": 8525,
+        "start_datetime": 1482310800000,
+        "end_datetime": 1482343200000
+      },
+      {
+        "id": 8526,
+        "start_datetime": 1482397200000,
+        "end_datetime": 1482429600000
+      }
+    ],
+    "form_contact_info": null,
+    "is_in_moderation": false
+  },
+  {
+    "item_id": 16763,
+    "lang": "en",
+    "title": "Club ALT presents: Death Hawks Duel",
+    "description": "Death Hawks was born in Riihimäki 2011 as a quartet, but today they will be playing as a duo when Teemu Markkula (vocals, guitar) and Tenho Mattila (keyboard, saxophone) take the stage. The bands intense live shows, with their psychedelic meanderings and in-your-face boogie, soon created an organic hype around the band. Free entry!",
+    "contact_info": {
+      "id": 10368,
+      "address": "Rautatienkatu 24",
+      "postcode": "33100",
+      "city": "Tampere",
+      "country": null,
+      "phone": null,
+      "email": null,
+      "link": "http://www.oconnells.fi",
+      "company_name": null,
+      "company_id": null,
+      "place_of_business": null
+    },
+    "created_at": 1480056883969,
+    "updated_at": 1480056993320,
+    "image": {
+      "item_id": 16765,
+      "src": "http://visittampere.fi/media/f356e900-b2db-11e6-935a-8f312ffed051.jpg",
+      "title": "deathhawksduel.jpg"
+    },
+    "start_datetime": 1480703400000,
+    "end_datetime": 1480715999999,
+    "type": "event",
+    "tags": [
+      "music"
+    ],
+    "is_free": true,
+    "ticket_link": null,
+    "is_public": true,
+    "has_articles": false,
+    "single_datetime": true,
+    "times": [],
+    "form_contact_info": null,
+    "is_in_moderation": false
+  },
+  {
+    "item_id": 15526,
+    "lang": "en",
+    "title": "Rock Gala",
+    "description": "A christmas party and charity event with the most popular rockstars.\nIn Tampere Solo Sokos Hotel Torni.",
+    "contact_info": {
+      "id": 9745,
+      "address": "Ratapihankatu 43",
+      "postcode": "33100",
+      "city": "Tampere",
+      "country": null,
+      "phone": null,
+      "email": null,
+      "link": "https://www.facebook.com/rokkigaala/",
+      "company_name": null,
+      "company_id": null,
+      "place_of_business": null
+    },
+    "created_at": 1475494124722,
+    "updated_at": 1475494127033,
+    "image": {
+      "item_id": 15527,
+      "src": "http://visittampere.fi/media/23692a30-895c-11e6-800a-97b270bd95b5.jpg",
+      "title": "Rokkigaala.jpg"
+    },
+    "start_datetime": 1480692600000,
+    "end_datetime": 1480715999999,
+    "type": "event",
+    "tags": [
+      "other-event"
+    ],
+    "is_free": false,
+    "ticket_link": "http://jcitammerkoski.tapahtumiin.fi/fi/events/e/rokkigaala-pe-2-12-2016-solo-sokos-hotel-torni-tampere/571f194876d172c91a8b4567",
+    "is_public": true,
+    "has_articles": false,
+    "single_datetime": true,
+    "times": [],
+    "form_contact_info": null,
+    "is_in_moderation": false
+  },
+  {
+    "item_id": 15524,
+    "lang": "en",
+    "title": "Symphony Concert",
+    "description": "Santtu-Matias Rouvali, conductor | Eriko Daimo, marimba | Haydn, Pius Cheung, Rahmaninov.\nTampere Hall, Main Auditorium.",
+    "contact_info": {
+      "id": 9743,
+      "address": "Yliopistonkatu 55",
+      "postcode": "33100",
+      "city": "Tampere",
+      "country": null,
+      "phone": null,
+      "email": null,
+      "link": "http://www.tamperefilharmonia.fi/en/concerts/symphony-concert-2016s-11/",
+      "company_name": null,
+      "company_id": null,
+      "place_of_business": null
+    },
+    "created_at": 1475492951083,
+    "updated_at": 1475492954973,
+    "image": {
+      "item_id": 2075,
+      "src": "http://visittampere.fi/media/f24aa6f0-925d-11e4-aaf4-a370dabf6675.jpg",
+      "title": "filharmonia_logo.jpg"
+    },
+    "start_datetime": 1480611600000,
+    "end_datetime": 1480629599999,
+    "type": "event",
+    "tags": [
+      "music"
+    ],
+    "is_free": false,
+    "ticket_link": "http://www.lippu.fi/sinfoniakonsertti-tampere-Tickets.html?affiliate=ADV&doc=artistPages%2Ftickets&fun=artist&action=tickets&key=1644023%247862761&jumpIn=yTix&kuid=450681&from=erdetaila",
+    "is_public": true,
+    "has_articles": false,
+    "single_datetime": true,
+    "times": [],
+    "form_contact_info": null,
+    "is_in_moderation": false
+  }
+]

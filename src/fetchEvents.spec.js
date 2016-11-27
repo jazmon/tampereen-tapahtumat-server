@@ -1,12 +1,14 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
+
+const fetchMock = require('fetch-mock');
+const mockResponse = require('../mockdata/mockresponse');
 const {
   checkStatus,
   parseJSON,
   multiplySingleDateEvents,
+  fetchEvents,
 } = require('./fetchEvents');
-
-// const { expect } = chai;
 
 chai.use(chaiAsPromised);
 chai.should();
@@ -14,6 +16,53 @@ chai.should();
 const debug = { hello: 'world' };
 
 describe('test http shite', () => {
+  describe('fetchEvents', () => {
+    // let server;
+    before(() => {
+      // server = sinon.fakeServer.create();
+      // fetchMock.get('*', mockResponse);
+      const response = {
+        body: JSON.stringify(mockResponse),
+        headers: {
+          pragma: 'no-cache',
+          date: 'Sun, 27 Nov 2016 17:30:40 GMT',
+          'content-encoding': 'gzip',
+          server: 'nginx/1.6.2',
+          age: '0',
+          'transfer-encoding': 'chunked',
+          'content-type': 'application/json; charset=utf-8',
+          'cache-control': 'no-cache',
+          connection: 'keep-alive',
+          'x-total-count': '15',
+        },
+      };
+      const options = {
+        response,
+        method: 'GET',
+        matcher: '*',
+        times: 1,
+
+      };
+      fetchMock.mock(options);
+
+      fetchMock.mock('*', { status: 404, throws: 'lol' });
+    });
+    after(() => {
+      // server.restore();
+      fetchMock.restore();
+    });
+    it('should fetch events', (done) => {
+      const promise = fetchEvents();
+
+      // promise.should.eventually.equal(mockResponse).notify(done);
+      promise.should.eventually.be.fulfilled.notify(done);
+    });
+    // it('should catch errors', (done) => {
+    //   const promise = fetchEvents();
+    //   promise.should.eventually.be.rejectedWith('lol').notify(done);
+    // });
+  });
+
   describe('checkStatus', () => {
     it('should return if status ok', () => {
       const response = { status: 200, statusText: 'ok' };

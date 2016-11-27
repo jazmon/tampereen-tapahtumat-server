@@ -4,31 +4,31 @@
   "private": true,
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha --harmony_async_await src/**/*.spec.js",
+    "test": "nyc --reporter=html --reporter=text mocha src/**/*.spec.js",
     "clean": "rimraf dist && mkdir dist",
     "test:watch": "chokidar \"src/**/*.js\" \"test/**/*.js\" -c \"npm test\"",
-    "lint": "node_modules/.bin/eslint -c .eslintrc.js src",
-    "lint:fix": "node_modules/.bin/eslint -c .eslintrc.js src --fix",
-    "coverage": "node --harmony_async_await node_modules/.bin/isparta cover --report text --report html --i=src/**/*.js --x=src/**/*.spec.js --x=node_modules node_modules/mocha/bin/_mocha -- src/**/*.spec.js --reporter spec",
-    "check-coverage": "istanbul check-coverage coverage/coverage.json"
+    "lint": "node_modules/.bin/eslint src",
+    "lint:fix": "node_modules/.bin/eslint src --fix"
   },
   "description": "a server for tampereen-tapahtumat",
   "main": "index.js",
   "author": "Atte Huhtakangas <atte.huhtakangas@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@google/maps": "^0.3.0",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "connect-timeout": "^1.8.0",
+    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "express-graphql": "^0.6.1",
     "express-slash": "^2.0.1",
     "graphql": "^0.8.2",
     "helmet": "^3.1.0",
-    "istanbul": "0.4.4",
     "moment": "^2.17.0",
     "morgan": "^1.7.0",
     "node-fetch": "^1.6.3",
+    "node-geocoder": "^3.15.1",
     "response-time": "^2.3.2",
     "rimraf": "^2.5.4",
     "view-helpers": "^0.1.5"
@@ -46,10 +46,11 @@
     "eslint-plugin-import": "^2.1.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.6.0",
+    "fetch-mock": "^5.5.0",
     "flow-bin": "^0.36.0",
     "isparta": "^4.0.0",
     "mocha": "^3.2.0",
-    "sinon": "^1.17.6",
-    "supertest": "^2.0.1"
+    "nyc": "^10.0.0",
+    "sinon": "^1.17.6"
   }
 }
