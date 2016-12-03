@@ -16,19 +16,20 @@ module.exports = {
     Response: true,
     fetch: true,
   },
-  extends: ['airbnb'],
+  extends: ['plugin:flowtype/recommended', 'airbnb'],
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 6,
     impliedStrict: false,
     ecmaFeatures: {
-      experimentalObjectRestSpread: false,
+      experimentalObjectRestSpread: true,
       jsx: false,
     }
   },
   plugins: [
     'babel',
     'jsx-a11y',
+    'flowtype',
     'react',
   ],
   rules: {

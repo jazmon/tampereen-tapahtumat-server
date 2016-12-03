@@ -3,5 +3,26 @@
 [include]
 
 [libs]
-
+types/
+flow-typed/
 [options]
+
+module.system=haste
+
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+
+
+experimental.strict_type_args=true
+
+munge_underscores=true
+
+suppress_type=$FlowIssue
+suppress_type=$FlowFixMe
+
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
+suppress_type=$FixMe
+unsafe.enable_getters_and_setters=true
+
+[version]
+>=0.33.0

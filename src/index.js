@@ -1,13 +1,10 @@
-// const express = require('express');
 import express from 'express';
+import morgan from 'morgan';
+import helmet from 'helmet';
 
-const moment = require('moment');
-const fetch = require('node-fetch');
-const morgan = require('morgan');
-const helmet = require('helmet');
-
-// const { baseApiUrl } = require('./config');
-const fetchEvents = require('./fetchEvents');
+import {
+  fetchEvents,
+} from './fetchEvents';
 
 const app = express();
 
@@ -21,5 +18,4 @@ app.get('/', (req, res) => {
     .catch(err => res.status(500).send('error', JSON.stringify(err)));
 });
 
-
-app.listen(3000, () => console.log('listening on port 3000'));
+export default app;
