@@ -13,7 +13,8 @@
     "clean": "rimraf build && mkdir build",
     "test:watch": "chokidar \"src/**/*.js\" \"test/**/*.js\" -c \"npm test\"",
     "lint": "node_modules/.bin/eslint src",
-    "lint:fix": "node_modules/.bin/eslint src --fix"
+    "lint:fix": "node_modules/.bin/eslint src --fix",
+    "heroku-postbuild": "npm build"
   },
   "description": "a server for tampereen-tapahtumat",
   "main": "index.js",
