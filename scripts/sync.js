@@ -1,7 +1,7 @@
 // @flow
 import {
   fetchEvents,
-  multiplySingleDateEvents,
+  // multiplySingleDateEvents,
   parseEvent,
 } from '../src/fetchEvents';
 import {
@@ -10,18 +10,25 @@ import {
 
 import mockEvents from '../mockdata/mockresponse.json';
 
-import { Event, ContactInfo, Image, FormContactInfo, sequelize } from '../models';
+import {
+  Event,
+  ContactInfo,
+  Image,
+  FormContactInfo,
+  sequelize,
+  Time,
+} from '../models';
 
 const sync = async () => {
   await sequelize.drop();
   console.log('sequelize: dropped tables');
   await sequelize.sync();
   console.log('sequelize: synced');
-  let events = await fetchEvents();
-  // let events = mockEvents;
+  // let events = await fetchEvents();
+  let events = mockEvents;
   console.log('script: events fetched', events.length);
-  events = multiplySingleDateEvents(events);
-  console.log('script: multiplied events', events.length);
+  // events = multiplySingleDateEvents(events);
+  // console.log('script: multiplied events', events.length);
   events = events.map(parseEvent);
   console.log('script: parsed events', events.length);
   events = await geocodeEvents(events);
@@ -30,7 +37,7 @@ const sync = async () => {
   // events = events.filter(event => !!event.latLng);
 
   events.forEach(async e => {
-    // console.log('e', e);
+    console.log('e', e);
     // TODO transactions
     try {
       const event = await Event.create({
@@ -39,8 +46,10 @@ const sync = async () => {
         description: e.description,
         latitude: e.latLng.latitude,
         longitude: e.latLng.longitude,
-        start: e.start,
-        end: e.end,
+        times: e.times.map(time => ({
+          start: time.start,
+          end: time.end,
+        })),
         // seems like there's always just 1 tag, which is the type
         type: e.tags[0],
         free: e.free,
@@ -62,6 +71,23 @@ const sync = async () => {
           title: e.image.title,
           uri: e.image.uri,
         },
+      }, {
+        include: [{
+          model: Time,
+          as: 'times',
+        }, {
+          model: Image,
+          as: 'image',
+        }, {
+          model: FormContactInfo,
+          as: 'formContactInfo',
+        }, {
+          model: ContactInfo,
+          as: 'contactInfo',
+        }
+          // { association: Image },
+
+        ],
       });
       console.log('event created');
     } catch (err) {

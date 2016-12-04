@@ -54,8 +54,11 @@ export function parseEvent(vtEvent: VTEvent): Event {
     id: `event-${vtEvent.item_id}`,
     title: vtEvent.title,
     description: vtEvent.description,
-    start: vtEvent.start_datetime || 0,
-    end: vtEvent.end_datetime || 0,
+    times: vtEvent.single_datetime
+      ? [{ start: vtEvent.start_datetime, end: vtEvent.end_datetime }]
+      : vtEvent.times,
+    // start: vtEvent.start_datetime || 0,
+    // end: vtEvent.end_datetime || 0,
     free: vtEvent.is_free,
     ticketLink: vtEvent.ticket_link,
     contactInfo: {
@@ -84,32 +87,39 @@ export function parseJSON(response: Response) {
   return response.json();
 }
 
-export function multiplySingleDateEvents(events: Array<VTEvent>) {
-  const singleDateEvents = [];
+// export function multiplySingleDateEvents(events: Array<VTEvent>) {
+//   const singleDateEvents = [];
+//   /* TODO handle cases where:
+//    * - event has multiple times in same day
+//    * - event has dates outside the wanted daterange
+//   */
+//   events.forEach((event) => {
+//     if (event.single_datetime) {
+//       singleDateEvents.push(event);
+//     } /* else {
+//       event.times.forEach((time, index) => {
+//         singleDateEvents.push(Object.assign({}, event, {
+//           item_id: event.item_id + index * 100000,
+//           start_datetime: time.start_datetime,
+//           end_datetime: time.end_datetime,
+//         }));
+//       });
+//     }*/
+//   });
+//   return singleDateEvents;
+// }
 
-  events.forEach((event) => {
-    if (event.single_datetime) {
-      singleDateEvents.push(event);
-    } /*else {
-      event.times.forEach((time, index) => {
-        singleDateEvents.push(Object.assign({}, event, {
-          item_id: event.item_id + index * 100000,
-          start_datetime: time.start_datetime,
-          end_datetime: time.end_datetime,
-        }));
-      });
-    }*/
-  });
-  return singleDateEvents;
-}
+type GetUrlProps = {
+  startDate: Function;
+  endDate: Function;
+};
 
-export const getUrl = ({ startDate, endDate }
-   = { startDate: start, endDate: end }) =>
+export const getUrl = ({ startDate = start, endDate = end }: GetUrlProps) =>
     `${API_URL_BASE}&limit=20&start_datetime=${startDate()}&end_datetime=${endDate()}&lang=${apiLocale}`;
 
 
 export const fetchEvents = () => new Promise((resolve, reject) => {
-  fetch(getUrl())
+  fetch(getUrl({ startDate: start, endDate: end }))
   .then(checkStatus)
   .then(parseJSON)
   .then(data => {

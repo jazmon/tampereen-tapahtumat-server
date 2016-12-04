@@ -19,8 +19,8 @@ const createEvent = (sequelize, DataTypes) => {
       defaultValue: null,
       validate: { min: -180, max: 180 },
     },
-    start: { type: DataTypes.DATE, allowNull: true },
-    end: { type: DataTypes.DATE, allowNull: true },
+    // start: { type: DataTypes.DATE, allowNull: true },
+    // end: { type: DataTypes.DATE, allowNull: true },
     type: DataTypes.STRING,
     free: DataTypes.BOOLEAN,
     ticketLink: DataTypes.STRING,
@@ -28,11 +28,17 @@ const createEvent = (sequelize, DataTypes) => {
     timestamps: true,
     classMethods: {
       associate: (models) => {
-        Event.hasOne(models.ContactInfo);
-        Event.hasOne(models.FormContactInfo);
-        Event.hasOne(models.Image);
+        Event.hasOne(models.ContactInfo, { as: 'contactInfo' });
+        Event.hasOne(models.FormContactInfo, { as: 'formContactInfo' });
+        Event.hasOne(models.Image, { as: 'image' });
+        Event.hasMany(models.Time, { as: 'times' });
       },
     },
+    // getterMethods: {
+    //   singleDateTime: function () {
+    //     return this.start === null || this.end === null;
+    //   },
+    // },
     validate: {
       bothCoordsOrNone: function () {
         if ((this.latitude === null) !== (this.longitude === null)) {

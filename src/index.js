@@ -7,7 +7,7 @@ import {
   fetchEvents,
 } from './fetchEvents';
 
-import { Event, ContactInfo, Image, FormContactInfo } from '../models';
+import { Event, ContactInfo, Image, FormContactInfo, Time } from '../models';
 
 
 const app = express();
@@ -18,7 +18,21 @@ app.use(helmet());
 
 
 app.get('/', async (req, res) => {
-  const events = await Event.findAll();
+  const events = await Event.findAll({
+    include: [{
+      model: Image,
+      as: 'image',
+    }, {
+      model: Time,
+      as: 'times',
+    }, {
+      model: ContactInfo,
+      as: 'contactInfo',
+    }, {
+      model: FormContactInfo,
+      as: 'formContactInfo',
+    }],
+  });
   return res.status(200).json(events);
 });
 

@@ -6,7 +6,7 @@ import mockResponse from '../mockdata/mockresponse.json';
 import {
   checkStatus,
   parseJSON,
-  multiplySingleDateEvents,
+  // multiplySingleDateEvents,
   fetchEvents,
   parseAddress,
   applyIfExist,
@@ -188,39 +188,39 @@ describe('test http shite', () => {
     });
   });
 
-  describe('multiplySingleDateEvents', () => {
-    it('should not throw if no events', () => {
-      multiplySingleDateEvents([]).should.have.lengthOf(0);
-    });
-
-    it('should return more events if one multiple datetime was given', () => {
-      const events = [0, 1].map((e, i) => ({
-        single_datetime: i % 2 === 0,
-        item_id: i,
-        start_datetime: i % 2 === 0 ? 1234 : undefined,
-        end_datetime: i % 2 === 0 ? 4567 : undefined,
-        times: i % 2 === 0 ? undefined : [{
-          start_datetime: 1234,
-          end_datetime: 4567,
-        }, {
-          start_datetime: 14124123,
-          end_datetime: 46346346,
-        }],
-      }));
-
-      multiplySingleDateEvents(events).should.have.length.above(events.length);
-    });
-
-    it('should return the same amount if no multiple datetime events were given', () => {
-      const events = [0, 1].map((e, i) => ({
-        single_datetime: true,
-        item_id: i,
-        start_datetime: 1234,
-        end_datetime: 4567,
-        times: [],
-      }));
-
-      multiplySingleDateEvents(events).should.have.lengthOf(events.length);
-    });
-  });
+  // describe('multiplySingleDateEvents', () => {
+  //   it('should not throw if no events', () => {
+  //     multiplySingleDateEvents([]).should.have.lengthOf(0);
+  //   });
+  //
+  //   it('should return more events if one multiple datetime was given', () => {
+  //     const events = [0, 1].map((e, i) => ({
+  //       single_datetime: i % 2 === 0,
+  //       item_id: i,
+  //       start_datetime: i % 2 === 0 ? 1234 : undefined,
+  //       end_datetime: i % 2 === 0 ? 4567 : undefined,
+  //       times: i % 2 === 0 ? undefined : [{
+  //         start_datetime: 1234,
+  //         end_datetime: 4567,
+  //       }, {
+  //         start_datetime: 14124123,
+  //         end_datetime: 46346346,
+  //       }],
+  //     }));
+  //
+  //     multiplySingleDateEvents(events).should.have.length.above(events.length);
+  //   });
+  //
+  //   it('should return the same amount if no multiple datetime events were given', () => {
+  //     const events = [0, 1].map((e, i) => ({
+  //       single_datetime: true,
+  //       item_id: i,
+  //       start_datetime: 1234,
+  //       end_datetime: 4567,
+  //       times: [],
+  //     }));
+  //
+  //     multiplySingleDateEvents(events).should.have.lengthOf(events.length);
+  //   });
+  // });
 });

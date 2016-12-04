@@ -4,9 +4,10 @@ declare type Event = {
   title: string;
   description: string;
   latlng: LatLng;
-  // vtEvent: VTEvent;
-  start: number;
-  end: number;
+  times: Array<{
+    start: number;
+    end: number;
+  }>;
   tags: Array<string>;
   free: boolean;
   ticketLink: ?string;
