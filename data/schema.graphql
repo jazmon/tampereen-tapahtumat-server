@@ -2,12 +2,70 @@ schema {
   query: RootQueryType
 }
 
+# the contact information for the event
+type ContactInfo {
+  id: Int!
+  address: String
+  email: String
+  phone: String
+  link: String
+  companyName: String
+  createdAt: String!
+  updatedAt: String!
+  EventId: Int
+}
+
 # an event
 type Event {
-  # The title of the event.
+  id: Int!
+  apiID: String
   title: String
+  description: String
+  latitude: Float
+  longitude: Float
+  type: String
+  free: Boolean
+  ticketLink: String
+  createdAt: String!
+  updatedAt: String!
+  times: [Time]
+  image: Image
+  contactInfo: ContactInfo
+  formContactInfo: FormContactInfo
+}
+
+# the contact form information for the event
+type FormContactInfo {
+  id: Int!
+  name: String
+  email: String
+  phone: String
+  jobTitle: String
+  createdAt: String!
+  updatedAt: String!
+  EventId: Int
+}
+
+# an image
+type Image {
+  id: Int!
+  title: String
+  uri: String
+  createdAt: String!
+  updatedAt: String!
+  EventId: Int
 }
 
 type RootQueryType {
-  events: [Event]
+  events(id: String, limit: Int, order: String): [Event]
+}
+
+# The start and end of the event
+type Time {
+  id: Int!
+  start: String
+  end: String
+  createdAt: String!
+  updatedAt: String!
+  EventId: Int
 }

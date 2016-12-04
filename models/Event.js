@@ -28,10 +28,10 @@ const createEvent = (sequelize, DataTypes) => {
     timestamps: true,
     classMethods: {
       associate: (models) => {
-        Event.hasOne(models.ContactInfo, { as: 'contactInfo' });
-        Event.hasOne(models.FormContactInfo, { as: 'formContactInfo' });
-        Event.hasOne(models.Image, { as: 'image' });
-        Event.hasMany(models.Time, { as: 'times' });
+        Event.ContactInfo = Event.hasOne(models.ContactInfo, { as: 'contactInfo' });
+        Event.FormContactInfo = Event.hasOne(models.FormContactInfo, { as: 'formContactInfo' });
+        Event.Image = Event.hasOne(models.Image, { as: 'image' });
+        Event.Times = Event.hasMany(models.Time, { as: 'times' });
       },
     },
     // getterMethods: {
@@ -40,7 +40,7 @@ const createEvent = (sequelize, DataTypes) => {
     //   },
     // },
     validate: {
-      bothCoordsOrNone: function () {
+      bothCoordsOrNone() {
         if ((this.latitude === null) !== (this.longitude === null)) {
           throw new Error('Require either both latitude and longitude or neither');
         }
