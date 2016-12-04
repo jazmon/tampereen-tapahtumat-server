@@ -1,4 +1,4 @@
- const {
+const {
   GraphQLBoolean,
   GraphQLID,
   GraphQLInt,
@@ -10,7 +10,7 @@
   GraphQLString,
 } = require('graphql');
 
-const { resolver, attributeFields, typeMapper } = require('graphql-sequelize');
+const { resolver, attributeFields, typeMapper, defaultListArgs, defaultArgs } = require('graphql-sequelize');
 const {
   Event,
   Image,
@@ -32,48 +32,49 @@ typeMapper.mapType((type) => {
 const GraphQLTime = new GraphQLObjectType({
   name: 'Time',
   description: 'The start and end of the event',
-  fields: attributeFields(Time),
+  fields: attributeFields(Time, { only: ['start', 'end'] }),
 });
 
 const GraphQLContactInfo = new GraphQLObjectType({
   name: 'ContactInfo',
   description: 'the contact information for the event',
-  fields: attributeFields(ContactInfo),
+  fields: attributeFields(ContactInfo, { exclude: ['createdAt', 'updatedAt', 'id', 'EventId'] }),
 });
 
 const GraphQLFormContactInfo = new GraphQLObjectType({
   name: 'FormContactInfo',
   description: 'the contact form information for the event',
-  fields: attributeFields(FormContactInfo),
+  fields: attributeFields(FormContactInfo, { exclude: ['createdAt', 'updatedAt', 'id', 'EventId'] }),
 });
 
 const GraphQLImage = new GraphQLObjectType({
   name: 'Image',
   description: 'an image',
-  fields: attributeFields(Image),
+  fields: attributeFields(Image, { exclude: ['createdAt', 'updatedAt', 'id', 'EventId'] }),
 });
 
 const GraphQLEvent = new GraphQLObjectType({
   name: 'Event',
   description: 'an event',
-  fields: Object.assign({}, attributeFields(Event), {
-    times: {
-      type: new GraphQLList(GraphQLTime),
-      resolve: resolver(Event.Times),
-    },
-    image: {
-      type: GraphQLImage,
-      resolve: resolver(Event.Image),
-    },
-    contactInfo: {
-      type: GraphQLContactInfo,
-      resolve: resolver(Event.ContactInfo),
-    },
-    formContactInfo: {
-      type: GraphQLFormContactInfo,
-      resolve: resolver(Event.FormContactInfo),
-    },
-  }),
+  fields: Object.assign({},
+    attributeFields(Event, { exclude: ['createdAt', 'updatedAt', 'apiID'], map: { apiID: 'id' } }), {
+      times: {
+        type: new GraphQLList(GraphQLTime),
+        resolve: resolver(Event.Times),
+      },
+      image: {
+        type: GraphQLImage,
+        resolve: resolver(Event.Image),
+      },
+      contactInfo: {
+        type: GraphQLContactInfo,
+        resolve: resolver(Event.ContactInfo),
+      },
+      formContactInfo: {
+        type: GraphQLFormContactInfo,
+        resolve: resolver(Event.FormContactInfo),
+      },
+    }),
 });
 
 const Root = new GraphQLObjectType({
@@ -82,18 +83,12 @@ const Root = new GraphQLObjectType({
     events: {
       type: new GraphQLList(GraphQLEvent),
 
-      args: {
+      args: Object.assign({}, defaultListArgs(Event), {
         // An arg with the key limit will automatically be converted to a limit on the target
         id: {
           type: GraphQLString,
         },
-        limit: {
-          type: GraphQLInt,
-        },
-        order: {
-          type: GraphQLString,
-        },
-      },
+      }),
       resolve: resolver(Event),
     },
   },

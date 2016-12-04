@@ -1,7 +1,7 @@
 const createTime = (sequelize, DataTypes) => {
   const Time = sequelize.define('Time', {
-    start: DataTypes.DATE,
-    end: DataTypes.DATE,
+    start: DataTypes.BIGINT,
+    end: DataTypes.BIGINT,
   });
 
   return Time;
