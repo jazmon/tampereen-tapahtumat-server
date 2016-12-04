@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 require('babel-register');
-// require('babel-polyfill');
+require('babel-polyfill');
 
 const models = require('../models');
 const sync = require('../scripts/sync.js').default;
@@ -11,5 +11,6 @@ models.sequelize.authenticate()
     .then(() => {
       console.log('synced');
       sync();
+      models.sequelize.close();
     }))
   .catch((e) => console.error('Unable to connect to the database:', e));
