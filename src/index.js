@@ -2,11 +2,13 @@ import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import PrettyError from 'pretty-error';
+import graphQLHTTP from 'express-graphql';
 
 import {
   fetchEvents,
 } from './fetchEvents';
 
+import { schema } from '../data/schema';
 import { Event, ContactInfo, Image, FormContactInfo, Time } from '../models';
 
 
@@ -16,6 +18,7 @@ const pe = new PrettyError();
 app.use(morgan('combined'));
 app.use(helmet());
 
+app.use('/graphql', graphQLHTTP({ schema, pretty: true, graphiql: true }));
 
 app.get('/', async (req, res) => {
   const events = await Event.findAll({

@@ -1,0 +1,13 @@
+schema {
+  query: RootQueryType
+}
+
+# an event
+type Event {
+  # The title of the event.
+  title: String
+}
+
+type RootQueryType {
+  events: [Event]
+}

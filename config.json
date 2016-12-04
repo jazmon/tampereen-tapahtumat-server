@@ -1,5 +1,6 @@
 {
   "googleApiKey": "AIzaSyDtMhGRmlbnuDXisY0Zg7pFkv-4Ot0mSqI",
   "defaultApiLocale": "fi",
-  "baseApiUrl": "http://visittampere.fi/api/search?type=event"
+  "baseApiUrl": "http://visittampere.fi/api/search?type=event",
+  "graphqlUrl": "http://localhost:80/graphql"
 }
