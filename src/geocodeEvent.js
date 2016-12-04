@@ -44,7 +44,12 @@ export function geocodeEvents(events: Array<Event>) {
             });
           })
           .catch(err => {
-            rej(err);
+            console.warn('geocode error', err, event);
+            res({
+              ...event,
+              latLng: null,
+            });
+            // rej(err);
           });
       }));
 

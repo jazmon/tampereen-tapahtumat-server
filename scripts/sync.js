@@ -24,8 +24,8 @@ const sync = async () => {
   console.log('sequelize: dropped tables');
   await sequelize.sync();
   console.log('sequelize: synced');
-  // let events = await fetchEvents();
-  let events = mockEvents;
+  let events = await fetchEvents();
+  // let events = mockEvents;
   console.log('script: events fetched', events.length);
   // events = multiplySingleDateEvents(events);
   // console.log('script: multiplied events', events.length);
@@ -84,10 +84,7 @@ const sync = async () => {
         }, {
           model: ContactInfo,
           as: 'contactInfo',
-        }
-          // { association: Image },
-
-        ],
+        }],
       });
       console.log('event created');
     } catch (err) {
