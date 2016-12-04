@@ -19,18 +19,32 @@ app.use(helmet());
 
 app.get('/', async (req, res) => {
   const events = await Event.findAll({
+    attributes: [
+      ['apiID', 'id'],
+      'title',
+      'description',
+      'type',
+      'latitude',
+      'longitude',
+      'free',
+      'ticketLink',
+    ],
     include: [{
       model: Image,
       as: 'image',
+      attributes: ['title', 'uri'],
     }, {
       model: Time,
       as: 'times',
+      attributes: ['start', 'end'],
     }, {
       model: ContactInfo,
       as: 'contactInfo',
+      attributes: ['address', 'email', 'phone', 'link', 'companyName'],
     }, {
       model: FormContactInfo,
       as: 'formContactInfo',
+      attributes: ['name', 'email', 'phone', 'jobTitle'],
     }],
   });
   return res.status(200).json(events);
