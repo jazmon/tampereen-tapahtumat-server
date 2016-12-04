@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-
-require('babel-register');
-require('babel-polyfill');
+// const env = process.env.NODE_ENV || 'development';
+// require('babel-register');
+// require('babel-polyfill');
 
 const models = require('../models');
 const sync = require('../scripts/sync.js').default;

@@ -14,7 +14,8 @@
     "clean": "rimraf build && mkdir build",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "sync": "babel-node bin/sync"
   },
   "description": "a server for tampereen-tapahtumat",
   "main": "index.js",
