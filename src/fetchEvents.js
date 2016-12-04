@@ -56,7 +56,7 @@ export function parseEvent(vtEvent: VTEvent): Event {
     description: vtEvent.description,
     times: vtEvent.single_datetime
       ? [{ start: vtEvent.start_datetime, end: vtEvent.end_datetime }]
-      : vtEvent.times,
+      : vtEvent.times.map(time => ({ start: time.start_datetime, end: time.end_datetime })),
     // start: vtEvent.start_datetime || 0,
     // end: vtEvent.end_datetime || 0,
     free: vtEvent.is_free,
