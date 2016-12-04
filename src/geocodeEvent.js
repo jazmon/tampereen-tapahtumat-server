@@ -1,5 +1,4 @@
 // @flow
-require('dotenv').config();
 
 const API_KEY = process.env.GOOGLE_API_KEY;
 

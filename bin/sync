@@ -1,16 +1,20 @@
 #!/usr/bin/env node
-// const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development';
 // require('babel-register');
 // require('babel-polyfill');
+if (env === 'development') {
+  // eslint-disable-next-line global-require
+  require('dotenv').config();
+}
 
 const models = require('../models');
 const sync = require('../scripts/sync.js').default;
 
 models.sequelize.authenticate()
-  .then(() => console.log('authenticated') || models.sequelize.sync()
+  .then(() => console.log('sequelize: authenticated') || models.sequelize.sync()
     .then(() => {
-      console.log('synced');
+      console.log('sequelize: synced');
       sync();
       models.sequelize.close();
     }))
-  .catch((e) => console.error('Unable to connect to the database:', e));
+  .catch((e) => console.error('sequelize: Unable to connect to the database:', e));
