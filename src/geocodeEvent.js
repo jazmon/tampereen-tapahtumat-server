@@ -24,6 +24,11 @@ export function geocodeAddress(address: ?string) {
   });
 }
 
+/*
+ * TODO
+ * cache results or at least create a map for unique
+ * addresses to not query duplicates multiple times
+*/
 export function geocodeEvents(events: Array<Event>) {
   return new Promise((resolve, reject) => {
     const promises = events.map((event: Event) =>

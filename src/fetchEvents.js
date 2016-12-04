@@ -90,7 +90,7 @@ export function multiplySingleDateEvents(events: Array<VTEvent>) {
   events.forEach((event) => {
     if (event.single_datetime) {
       singleDateEvents.push(event);
-    } else {
+    } /*else {
       event.times.forEach((time, index) => {
         singleDateEvents.push(Object.assign({}, event, {
           item_id: event.item_id + index * 100000,
@@ -98,7 +98,7 @@ export function multiplySingleDateEvents(events: Array<VTEvent>) {
           end_datetime: time.end_datetime,
         }));
       });
-    }
+    }*/
   });
   return singleDateEvents;
 }
