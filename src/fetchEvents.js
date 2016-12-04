@@ -55,10 +55,21 @@ export function parseEvent(vtEvent: VTEvent): Event {
     title: vtEvent.title,
     description: vtEvent.description,
     times: vtEvent.single_datetime
-      ? [{ start: vtEvent.start_datetime, end: vtEvent.end_datetime }]
-      : vtEvent.times.map(time => ({ start: time.start_datetime, end: time.end_datetime })),
-    // start: vtEvent.start_datetime || 0,
-    // end: vtEvent.end_datetime || 0,
+      ? [{ start: (vtEvent: any).start_datetime, end: (vtEvent: any).end_datetime }]
+      : vtEvent.times
+        .map(time => ({
+          start: time.start_datetime,
+          end: time.end_datetime,
+        }))
+        .filter(time => {
+          const now = moment();
+          const bool = moment(time.start).isBetween(
+            moment(now).subtract(1, 'days'),
+            moment(now).add(7, 'days')
+          );
+          return bool;
+        }
+      ),
     free: vtEvent.is_free,
     ticketLink: vtEvent.ticket_link,
     contactInfo: {

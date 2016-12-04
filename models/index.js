@@ -10,7 +10,6 @@ const config = require('../config/config')[env];
 const db = {};
 let sequelize;
 if (process.env.DATABASE_URL) {
-  console.log('has db url');
   const match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/);
 
   sequelize = new Sequelize(process.env.DATABASE_URL, {
@@ -21,7 +20,6 @@ if (process.env.DATABASE_URL) {
     logging: true, // false
   });
 } else {
-  console.log('no db url');
   sequelize = new Sequelize(config.database, config.username,
      config.password, config);
 }

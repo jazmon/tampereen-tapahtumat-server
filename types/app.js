@@ -3,7 +3,7 @@ declare type Event = {
   id: string;
   title: string;
   description: string;
-  latlng: LatLng;
+  latLng: ?LatLng;
   times: Array<{
     start: number;
     end: number;
