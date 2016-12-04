@@ -12,4 +12,4 @@ const createImage = (sequelize, DataTypes) => {
   return Image;
 };
 
-export default createImage;
+module.exports = createImage;

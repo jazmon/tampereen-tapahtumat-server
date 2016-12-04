@@ -24,7 +24,7 @@ const createFormContactInfo = (sequelize, DataTypes) => {
   return FormContactInfo;
 };
 
-export default createFormContactInfo;
+module.exports = createFormContactInfo;
 
 /*
   email: ?string;

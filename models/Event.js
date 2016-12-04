@@ -45,4 +45,4 @@ const createEvent = (sequelize, DataTypes) => {
   return Event;
 };
 
-export default createEvent;
+module.exports = createEvent;

@@ -31,7 +31,7 @@ const createContactInfo = (sequelize, DataTypes) => {
   return ContactInfo;
 };
 
-export default createContactInfo;
+module.exports = createContactInfo;
 
 /*
   address: ?string;
