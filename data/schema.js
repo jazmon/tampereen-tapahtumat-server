@@ -1,4 +1,4 @@
-import {
+ const {
   GraphQLBoolean,
   GraphQLID,
   GraphQLInt,
@@ -8,17 +8,17 @@ import {
   GraphQLSchema,
   GraphQLFloat,
   GraphQLString,
-} from 'graphql';
+} = require('graphql');
 
-import { resolver, attributeFields, typeMapper } from 'graphql-sequelize';
-import {
+const { resolver, attributeFields, typeMapper } = require('graphql-sequelize');
+const {
   Event,
   Image,
   Sequelize,
   Time,
   FormContactInfo,
   ContactInfo,
-} from '../models';
+} = require('../models');
 
 typeMapper.mapType((type) => {
   // map bools as strings
@@ -29,17 +29,19 @@ typeMapper.mapType((type) => {
   return false;
 });
 
-export const GraphQLTime = new GraphQLObjectType({
+const GraphQLTime = new GraphQLObjectType({
   name: 'Time',
   description: 'The start and end of the event',
   fields: attributeFields(Time),
 });
-export const GraphQLContactInfo = new GraphQLObjectType({
+
+const GraphQLContactInfo = new GraphQLObjectType({
   name: 'ContactInfo',
   description: 'the contact information for the event',
   fields: attributeFields(ContactInfo),
 });
-export const GraphQLFormContactInfo = new GraphQLObjectType({
+
+const GraphQLFormContactInfo = new GraphQLObjectType({
   name: 'FormContactInfo',
   description: 'the contact form information for the event',
   fields: attributeFields(FormContactInfo),
@@ -51,7 +53,7 @@ const GraphQLImage = new GraphQLObjectType({
   fields: attributeFields(Image),
 });
 
-export const GraphQLEvent = new GraphQLObjectType({
+const GraphQLEvent = new GraphQLObjectType({
   name: 'Event',
   description: 'an event',
   fields: Object.assign({}, attributeFields(Event), {
@@ -74,7 +76,7 @@ export const GraphQLEvent = new GraphQLObjectType({
   }),
 });
 
-export const Root = new GraphQLObjectType({
+const Root = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
     events: {
@@ -97,9 +99,9 @@ export const Root = new GraphQLObjectType({
   },
 });
 
-export const schema = new GraphQLSchema({
+const schema = new GraphQLSchema({
   query: Root,
   // mutation: Mutation,
 });
 
-export default schema;
+exports.schema = schema;
