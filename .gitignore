@@ -1,7 +1,7 @@
 # project specific
 .env
 build/
-
+build-data/
 
 # Created by https://www.gitignore.io/api/node,jspm,git,macos,windows,linux
 

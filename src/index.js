@@ -8,9 +8,12 @@ import {
   fetchEvents,
 } from './fetchEvents';
 
-import { schema } from '../data/schema';
+// import { schema } from '../data/schema';
 import { Event, ContactInfo, Image, FormContactInfo, Time } from '../models';
 
+const schema = process.env.NODE_ENV === 'production'
+  ? require('../build-data/schema') // eslint-disable-line import/no-unresolved
+  : require('../data/schema');
 
 const app = express();
 const pe = new PrettyError();
