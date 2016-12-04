@@ -7,6 +7,9 @@ if (env !== 'production') {
 }
 
 // require('babel-polyfill');
+if (env === 'production') {
+  require('newrelic');
+}
 
 const app = env !== 'production'
   ? require('../src').default
