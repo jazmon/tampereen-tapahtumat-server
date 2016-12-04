@@ -6,8 +6,8 @@ if (env !== 'production') {
   require('babel-register');
 }
 
-// require('babel-polyfill');
 if (env === 'production') {
+  // eslint-disable-next-line global-require
   require('newrelic');
 }
 

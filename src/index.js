@@ -17,8 +17,4 @@ app.get('/', (req, res) => {
     .catch(err => res.status(500).send('error', JSON.stringify(err)));
 });
 
-app.get('/test', (req, res) => {
-  res.send('test');
-});
-
 export default app;
