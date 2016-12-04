@@ -5,14 +5,14 @@ if (env !== 'production') {
   // eslint-disable-next-line global-require
   require('babel-register');
 }
-require('babel-polyfill');
+
+// require('babel-polyfill');
+
 const app = env !== 'production'
   ? require('../src').default
   : require('../build').default;
 
-
-// app.set('port', process.env.PORT || 8000);
-app.set('port', process.env.PORT || 80);
+app.set('port', (process.env.PORT || 5000));
 
 const server = app.listen(app.get('port'), () => {
   console.log(`Server listening on port ${server.address().port}`);
