@@ -13,10 +13,20 @@ if (env === 'production') {
 
 const app = env !== 'production'
   ? require('../src').default
-  : require('../build').default;
+  : require('../build').default; // eslint-disable-line import/no-unresolved
+
+
+const models = require('../models');
+
 
 app.set('port', (process.env.PORT || 5000));
+app.set('env', process.env.NODE_ENV);
 
-const server = app.listen(app.get('port'), () => {
-  console.log(`Server listening on port ${server.address().port}`);
-});
+models.sequelize.authenticate()
+  .then(() => models.sequelize.sync()
+    .then(() => {
+      const server = app.listen(app.get('port'), () => {
+        console.log(`Server listening on port ${server.address().port}`);
+      });
+    }))
+  .catch((e) => console.error('Unable to connect to the database:', e));
