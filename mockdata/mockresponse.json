@@ -1,263 +1,413 @@
 [
-  {
-    "item_id": 15774,
-    "lang": "en",
-    "title": "The Tampere Christmas Market",
-    "description": "The Christmas Market offers relaxing moments and a merry atmosphere, performances to raise your holiday spirits to the fullest. The many artists and craftspeople present and sell their unique Finnish artworks and products. At Keskustori. Open from 3rd to 22nd December 2016. Opening hours: weekdays from 10 am to 7 pm, on Sundays from 12 am to 7 pm. 6th December: from 12 am to 8 pm.",
-    "contact_info": {
-      "id": 9884,
-      "address": "Keskustori",
-      "postcode": null,
-      "city": null,
-      "country": null,
-      "phone": null,
-      "email": null,
-      "link": "http://tampereenjoulutori.fi/en",
-      "company_name": null,
-      "company_id": null,
-      "place_of_business": null
+    {
+        "item_id": 15554,
+        "lang": "en",
+        "title": "Heavy Christmas - Concert",
+        "description": "Hard Rock / Metal / Progressive.\nIn Tampere Hall.",
+        "contact_info": {
+            "id": 9764,
+            "address": "Yliopistonkatu 55",
+            "postcode": "33100",
+            "city": "Tampere",
+            "country": null,
+            "phone": null,
+            "email": null,
+            "link": "http://raskastajoulua.com/",
+            "company_name": null,
+            "company_id": null,
+            "place_of_business": null
+        },
+        "created_at": 1475504445135,
+        "updated_at": 1479115776347,
+        "image": {
+            "item_id": 15555,
+            "src": "http://visittampere.fi/media/43266460-8974-11e6-800a-97b270bd95b5.jpg",
+            "title": "Raskasta Joulua.jpeg"
+        },
+        "start_datetime": 1481475600000,
+        "end_datetime": 1481493599999,
+        "type": "event",
+        "tags": [
+            "music"
+        ],
+        "is_free": false,
+        "ticket_link": "http://raskastajoulua.com/",
+        "is_public": true,
+        "has_articles": false,
+        "single_datetime": true,
+        "times": [],
+        "form_contact_info": null,
+        "is_in_moderation": false
     },
-    "created_at": 1476270835685,
-    "updated_at": 1479127176362,
-    "image": {
-      "item_id": 15643,
-      "src": "http://visittampere.fi/media/f8e07ef0-8c60-11e6-800a-97b270bd95b5.jpg",
-      "title": "joulutori.jpg"
+    {
+        "item_id": 15549,
+        "lang": "en",
+        "title": "Erja Lyytinen Duo",
+        "description": "Finnish blues. \nShowtime at 22:00, doors open at 21:30. Age limit 18. TTT-Klubi.",
+        "contact_info": {
+            "id": 9761,
+            "address": "Hallituskatu 19",
+            "postcode": "33200",
+            "city": "Tampere",
+            "country": null,
+            "phone": null,
+            "email": null,
+            "link": "http://www.ttt-teatteri.fi/ohjelmisto/ttt-klubi-erja-lyytinen-duo",
+            "company_name": null,
+            "company_id": null,
+            "place_of_business": null
+        },
+        "created_at": 1475501746522,
+        "updated_at": 1475501746522,
+        "image": {
+            "item_id": 15550,
+            "src": "http://visittampere.fi/media/cddd6ce0-896d-11e6-800a-97b270bd95b5.JPG",
+            "title": "Erja Lyytinen Duo.JPG"
+        },
+        "start_datetime": 1481400000000,
+        "end_datetime": 1481407199999,
+        "type": "event",
+        "tags": [
+            "music"
+        ],
+        "is_free": false,
+        "ticket_link": "http://www.lippu.fi/tickets.html?affiliate=adv&doc=erdetaila&fun=erdetail&erid=1653236",
+        "is_public": true,
+        "has_articles": false,
+        "single_datetime": true,
+        "times": [],
+        "form_contact_info": null,
+        "is_in_moderation": false
     },
-    "start_datetime": null,
-    "end_datetime": null,
-    "type": "event",
-    "tags": [
-      "market"
-    ],
-    "is_free": true,
-    "ticket_link": null,
-    "is_public": true,
-    "has_articles": true,
-    "single_datetime": false,
-    "times": [
-      {
-        "id": 8505,
-        "start_datetime": 1480755600000,
-        "end_datetime": 1480788000000
-      },
-      {
-        "id": 8506,
-        "start_datetime": 1480845600000,
-        "end_datetime": 1480870800000
-      },
-      {
-        "id": 8507,
-        "start_datetime": 1480928400000,
-        "end_datetime": 1480960800000
-      },
-      {
-        "id": 8508,
-        "start_datetime": 1481014800000,
-        "end_datetime": 1481047200000
-      },
-      {
-        "id": 8509,
-        "start_datetime": 1481101200000,
-        "end_datetime": 1481133600000
-      },
-      {
-        "id": 8510,
-        "start_datetime": 1481187600000,
-        "end_datetime": 1481220000000
-      },
-      {
-        "id": 8511,
-        "start_datetime": 1481274000000,
-        "end_datetime": 1481306400000
-      },
-      {
-        "id": 8512,
+    {
+        "item_id": 15547,
+        "lang": "en",
+        "title": "Lauri Tähkä",
+        "description": "The famous Finnish musician and singer Lauri Tähkä comes back on stage after a long break.\nIn Tampere Hall, Main Auditorium.",
+        "contact_info": {
+            "id": 9760,
+            "address": "Yliopistonkatu 55",
+            "postcode": "33100",
+            "city": "Tampere",
+            "country": null,
+            "phone": null,
+            "email": null,
+            "link": "https://www.tampere-talo.fi/lauritahka",
+            "company_name": null,
+            "company_id": null,
+            "place_of_business": null
+        },
+        "created_at": 1475501259572,
+        "updated_at": 1475501264722,
+        "image": {
+            "item_id": 15548,
+            "src": "http://visittampere.fi/media/dff09ca0-896c-11e6-800a-97b270bd95b5.jpg",
+            "title": "Lauri Tähkä.jpg"
+        },
+        "start_datetime": 1481389200000,
+        "end_datetime": 1481407199999,
+        "type": "event",
+        "tags": [
+            "music"
+        ],
+        "is_free": false,
+        "ticket_link": "http://www.lippu.fi/lauri-taehkae-vien-sut-taeaeltae-kotiin-tampere-Tickets.html?affiliate=ADV&doc=artistPages%2Ftickets&fun=artist&action=tickets&key=1719683%248529451&jumpIn=yTix&kuid=464574",
+        "is_public": true,
+        "has_articles": false,
+        "single_datetime": true,
+        "times": [],
+        "form_contact_info": null,
+        "is_in_moderation": false
+    },
+    {
+        "item_id": 15682,
+        "lang": "en",
+        "title": "Hockey Finnish Championship: Tappara- KalPa",
+        "description": "In Hakametsä indoor Ice Stadium.",
+        "contact_info": {
+            "id": 9834,
+            "address": "Keltinkatu 2",
+            "postcode": "33520",
+            "city": "Tampere",
+            "country": null,
+            "phone": null,
+            "email": null,
+            "link": "http://tappara.fi/liiga/ottelut/liiga-2016-17",
+            "company_name": null,
+            "company_id": null,
+            "place_of_business": null
+        },
+        "created_at": 1475845512718,
+        "updated_at": 1475845514890,
+        "image": {
+            "item_id": 15251,
+            "src": "http://visittampere.fi/media/c778e050-7bdf-11e6-9b98-13b192b3d25a.JPG",
+            "title": "Tappara.JPG"
+        },
+        "start_datetime": 1481382000000,
+        "end_datetime": 1481407199999,
+        "type": "event",
+        "tags": [
+            "sports"
+        ],
+        "is_free": null,
+        "ticket_link": "http://tappara.fi/liiga/liput-kausikortit/liput",
+        "is_public": true,
+        "has_articles": false,
+        "single_datetime": true,
+        "times": [],
+        "form_contact_info": null,
+        "is_in_moderation": false
+    },
+    {
+        "item_id": 16622,
+        "lang": "en",
+        "title": "Roller Derby Finland Cup final - \"Kuninkuusjamit\"",
+        "description": "Roller derby is a contact sport played by two teams of five members roller skating in the same direction (counter-clockwise) around a track. The grande finale of the Finnish Nationals, Suomi Cup, takes place at Tampere on Saturday, Dec 10th. This season has been full of surprises and lead changes. Kallio Rolling Rainbow, Helsinki Roller Derby, Tampere Roller Derby and Dirty River Roller Grrrls - Turku Roller Derby, the four highest ranked teams after the regular season will battle for the gold.",
+        "contact_info": {
+            "id": 10287,
+            "address": "Jäähallinraitti 3",
+            "postcode": "33540",
+            "city": "Tampere",
+            "country": null,
+            "phone": null,
+            "email": null,
+            "link": "https://www.facebook.com/events/349788912047595/",
+            "company_name": null,
+            "company_id": null,
+            "place_of_business": null
+        },
+        "created_at": 1479453768469,
+        "updated_at": 1479453852371,
+        "image": {
+            "item_id": 4814,
+            "src": "http://visittampere.fi/media/39caece0-f2ff-11e4-9635-bf3cebe700ca.JPG",
+            "title": "roller.JPG"
+        },
+        "start_datetime": 1481364000000,
+        "end_datetime": 1481400059999,
+        "type": "event",
+        "tags": [
+            "sports"
+        ],
+        "is_free": false,
+        "ticket_link": null,
+        "is_public": true,
+        "has_articles": false,
+        "single_datetime": true,
+        "times": [],
+        "form_contact_info": null,
+        "is_in_moderation": false
+    },
+    {
+        "item_id": 16123,
+        "lang": "en",
+        "title": "Design Market Christmas",
+        "description": "Design Market Christmas is organised in Tampere, at Tullikamari on 10.-11.12.2016 at 11-17. The Market gathers up design entrepreneurs from all around Finland, altogether 59 companies. From Design Market you will find high-quality design, new products, personalized gift ideas and Finnish design products.",
+        "contact_info": {
+            "id": 10045,
+            "address": "Tullikamarin aukio 2",
+            "postcode": null,
+            "city": "Tampere",
+            "country": null,
+            "phone": null,
+            "email": "info@designontampere.com",
+            "link": "http://designontampere.com/",
+            "company_name": null,
+            "company_id": null,
+            "place_of_business": null
+        },
+        "created_at": 1478613840770,
+        "updated_at": 1479115703370,
+        "image": {
+            "item_id": 12616,
+            "src": "http://visittampere.fi/media/64a5d5f0-15e6-11e6-befd-3993d28fed11.jpg",
+            "title": "designtori.jpg"
+        },
         "start_datetime": 1481360400000,
-        "end_datetime": 1481392800000
-      },
-      {
-        "id": 8513,
-        "start_datetime": 1481450400000,
-        "end_datetime": 1481475600000
-      },
-      {
-        "id": 8514,
-        "start_datetime": 1481533200000,
-        "end_datetime": 1481565600000
-      },
-      {
-        "id": 8515,
-        "start_datetime": 1481619600000,
-        "end_datetime": 1481652000000
-      },
-      {
-        "id": 8516,
-        "start_datetime": 1481706000000,
-        "end_datetime": 1481738400000
-      },
-      {
-        "id": 8519,
-        "start_datetime": 1481792400000,
-        "end_datetime": 1481824800000
-      },
-      {
-        "id": 8520,
-        "start_datetime": 1481878800000,
-        "end_datetime": 1481911200000
-      },
-      {
-        "id": 8521,
-        "start_datetime": 1481965200000,
-        "end_datetime": 1481997600000
-      },
-      {
-        "id": 8522,
-        "start_datetime": 1482055200000,
-        "end_datetime": 1482080400000
-      },
-      {
-        "id": 8523,
-        "start_datetime": 1482138000000,
-        "end_datetime": 1482170400000
-      },
-      {
-        "id": 8524,
-        "start_datetime": 1482224400000,
-        "end_datetime": 1482256800000
-      },
-      {
-        "id": 8525,
-        "start_datetime": 1482310800000,
-        "end_datetime": 1482343200000
-      },
-      {
-        "id": 8526,
-        "start_datetime": 1482397200000,
-        "end_datetime": 1482429600000
-      }
-    ],
-    "form_contact_info": null,
-    "is_in_moderation": false
-  },
-  {
-    "item_id": 16763,
-    "lang": "en",
-    "title": "Club ALT presents: Death Hawks Duel",
-    "description": "Death Hawks was born in Riihimäki 2011 as a quartet, but today they will be playing as a duo when Teemu Markkula (vocals, guitar) and Tenho Mattila (keyboard, saxophone) take the stage. The bands intense live shows, with their psychedelic meanderings and in-your-face boogie, soon created an organic hype around the band. Free entry!",
-    "contact_info": {
-      "id": 10368,
-      "address": "Rautatienkatu 24",
-      "postcode": "33100",
-      "city": "Tampere",
-      "country": null,
-      "phone": null,
-      "email": null,
-      "link": "http://www.oconnells.fi",
-      "company_name": null,
-      "company_id": null,
-      "place_of_business": null
+        "end_datetime": 1481468459999,
+        "type": "event",
+        "tags": [
+            "market"
+        ],
+        "is_free": null,
+        "ticket_link": null,
+        "is_public": true,
+        "has_articles": true,
+        "single_datetime": true,
+        "times": [],
+        "form_contact_info": null,
+        "is_in_moderation": false
     },
-    "created_at": 1480056883969,
-    "updated_at": 1480056993320,
-    "image": {
-      "item_id": 16765,
-      "src": "http://visittampere.fi/media/f356e900-b2db-11e6-935a-8f312ffed051.jpg",
-      "title": "deathhawksduel.jpg"
+    {
+        "item_id": 16935,
+        "lang": "en",
+        "title": "Take Two - improv show: Pikkujoulut",
+        "description": "ComedyO’Connell’s Presents: PIKKUJOULUT – Take Two! The Take Two crew is back in action this month! Join us as we take on The Traditional Finnish Pikkujoulut! We’ll show you some moments between Drunk Co-Workers, Awkward moments with the boss, and the Christmas Ham! And in the 2nd Half we present – XXXMAS – An adult-themed look at what happens behind closed curtains at Santa’s Workshop! Free entry!",
+        "contact_info": {
+            "id": 10472,
+            "address": "Rautatienkatu 24",
+            "postcode": "33100",
+            "city": "Tampere",
+            "country": null,
+            "phone": null,
+            "email": null,
+            "link": "http://www.oconnells.fi",
+            "company_name": null,
+            "company_id": null,
+            "place_of_business": null
+        },
+        "created_at": 1480658731245,
+        "updated_at": 1480658778498,
+        "image": {
+            "item_id": 3103,
+            "src": "http://visittampere.fi/media/74a72020-a603-11e4-9d2a-774be23585fa.jpg",
+            "title": "o'connel's.jpg"
+        },
+        "start_datetime": 1481220000000,
+        "end_datetime": 1481234399999,
+        "type": "event",
+        "tags": [
+            "entertainment"
+        ],
+        "is_free": true,
+        "ticket_link": null,
+        "is_public": true,
+        "has_articles": false,
+        "single_datetime": true,
+        "times": [],
+        "form_contact_info": null,
+        "is_in_moderation": false
     },
-    "start_datetime": 1480703400000,
-    "end_datetime": 1480715999999,
-    "type": "event",
-    "tags": [
-      "music"
-    ],
-    "is_free": true,
-    "ticket_link": null,
-    "is_public": true,
-    "has_articles": false,
-    "single_datetime": true,
-    "times": [],
-    "form_contact_info": null,
-    "is_in_moderation": false
-  },
-  {
-    "item_id": 15526,
-    "lang": "en",
-    "title": "Rock Gala",
-    "description": "A christmas party and charity event with the most popular rockstars.\nIn Tampere Solo Sokos Hotel Torni.",
-    "contact_info": {
-      "id": 9745,
-      "address": "Ratapihankatu 43",
-      "postcode": "33100",
-      "city": "Tampere",
-      "country": null,
-      "phone": null,
-      "email": null,
-      "link": "https://www.facebook.com/rokkigaala/",
-      "company_name": null,
-      "company_id": null,
-      "place_of_business": null
+    {
+        "item_id": 16810,
+        "lang": "en",
+        "title": "Jemma-Gaala 2016, Pikkujoulut & Shaun Booker (U.S.A) and her Band",
+        "description": "Jemma-gala 2016, traditional pre-Christmas party and Shaun Booker (U.S.A.) and her band. Gospel music, womanpower and energy! Doors open 20.00. Showtime 21.30.",
+        "contact_info": {
+            "id": 10404,
+            "address": "Keskustori 2",
+            "postcode": "33100",
+            "city": "Tampere",
+            "country": null,
+            "phone": null,
+            "email": "blueslovers.info@gmail.com",
+            "link": "http://aamulehti.menoinfo.fi/tampere/musiikki/jemma-gaala-2016-pikkujoulut-shaun-booker-usa-and-her-band/659084",
+            "company_name": null,
+            "company_id": null,
+            "place_of_business": null
+        },
+        "created_at": 1480320086225,
+        "updated_at": 1480320265215,
+        "image": {
+            "item_id": 16811,
+            "src": "http://visittampere.fi/media/bce61af0-b540-11e6-935a-8f312ffed051.jpg",
+            "title": "shaunbooker.jpg"
+        },
+        "start_datetime": 1481220000000,
+        "end_datetime": 1481233559999,
+        "type": "event",
+        "tags": [
+            "music"
+        ],
+        "is_free": false,
+        "ticket_link": null,
+        "is_public": true,
+        "has_articles": false,
+        "single_datetime": true,
+        "times": [],
+        "form_contact_info": null,
+        "is_in_moderation": false
     },
-    "created_at": 1475494124722,
-    "updated_at": 1475494127033,
-    "image": {
-      "item_id": 15527,
-      "src": "http://visittampere.fi/media/23692a30-895c-11e6-800a-97b270bd95b5.jpg",
-      "title": "Rokkigaala.jpg"
+    {
+        "item_id": 15679,
+        "lang": "en",
+        "title": "Hockey Finnish Championship: Tappara- Pelicans",
+        "description": "In Hakametsä indoor Ice Stadium.",
+        "contact_info": {
+            "id": 9832,
+            "address": "Keltinkatu 2",
+            "postcode": "33520",
+            "city": "Tampere",
+            "country": null,
+            "phone": null,
+            "email": null,
+            "link": "http://tappara.fi/liiga/ottelut/liiga-2016-17",
+            "company_name": null,
+            "company_id": null,
+            "place_of_business": null
+        },
+        "created_at": 1475845371530,
+        "updated_at": 1475845373805,
+        "image": {
+            "item_id": 15251,
+            "src": "http://visittampere.fi/media/c778e050-7bdf-11e6-9b98-13b192b3d25a.JPG",
+            "title": "Tappara.JPG"
+        },
+        "start_datetime": 1481214600000,
+        "end_datetime": 1481234399999,
+        "type": "event",
+        "tags": [
+            "sports"
+        ],
+        "is_free": null,
+        "ticket_link": "http://tappara.fi/liiga/liput-kausikortit/liput",
+        "is_public": true,
+        "has_articles": false,
+        "single_datetime": true,
+        "times": [],
+        "form_contact_info": null,
+        "is_in_moderation": false
     },
-    "start_datetime": 1480692600000,
-    "end_datetime": 1480715999999,
-    "type": "event",
-    "tags": [
-      "other-event"
-    ],
-    "is_free": false,
-    "ticket_link": "http://jcitammerkoski.tapahtumiin.fi/fi/events/e/rokkigaala-pe-2-12-2016-solo-sokos-hotel-torni-tampere/571f194876d172c91a8b4567",
-    "is_public": true,
-    "has_articles": false,
-    "single_datetime": true,
-    "times": [],
-    "form_contact_info": null,
-    "is_in_moderation": false
-  },
-  {
-    "item_id": 15524,
-    "lang": "en",
-    "title": "Symphony Concert",
-    "description": "Santtu-Matias Rouvali, conductor | Eriko Daimo, marimba | Haydn, Pius Cheung, Rahmaninov.\nTampere Hall, Main Auditorium.",
-    "contact_info": {
-      "id": 9743,
-      "address": "Yliopistonkatu 55",
-      "postcode": "33100",
-      "city": "Tampere",
-      "country": null,
-      "phone": null,
-      "email": null,
-      "link": "http://www.tamperefilharmonia.fi/en/concerts/symphony-concert-2016s-11/",
-      "company_name": null,
-      "company_id": null,
-      "place_of_business": null
-    },
-    "created_at": 1475492951083,
-    "updated_at": 1475492954973,
-    "image": {
-      "item_id": 2075,
-      "src": "http://visittampere.fi/media/f24aa6f0-925d-11e4-aaf4-a370dabf6675.jpg",
-      "title": "filharmonia_logo.jpg"
-    },
-    "start_datetime": 1480611600000,
-    "end_datetime": 1480629599999,
-    "type": "event",
-    "tags": [
-      "music"
-    ],
-    "is_free": false,
-    "ticket_link": "http://www.lippu.fi/sinfoniakonsertti-tampere-Tickets.html?affiliate=ADV&doc=artistPages%2Ftickets&fun=artist&action=tickets&key=1644023%247862761&jumpIn=yTix&kuid=450681&from=erdetaila",
-    "is_public": true,
-    "has_articles": false,
-    "single_datetime": true,
-    "times": [],
-    "form_contact_info": null,
-    "is_in_moderation": false
-  }
+    {
+        "item_id": 15544,
+        "lang": "en",
+        "title": "Joulu soikoon! (sound of christmas)",
+        "description": "Great Christmas concert entertainment!\nTampere Theatre, Main Stage.",
+        "contact_info": {
+            "id": 9758,
+            "address": "Keskustori 2",
+            "postcode": null,
+            "city": "Tampere",
+            "country": null,
+            "phone": null,
+            "email": null,
+            "link": "http://www.tampereenteatteri.fi/fi/naytelma/joulu-soikoon/",
+            "company_name": null,
+            "company_id": null,
+            "place_of_business": null
+        },
+        "created_at": 1475500723891,
+        "updated_at": 1479116426828,
+        "image": {
+            "item_id": 15545,
+            "src": "http://visittampere.fi/media/91c2af60-896b-11e6-800a-97b270bd95b5.jpg",
+            "title": "Joulu soikoon.jpg"
+        },
+        "start_datetime": null,
+        "end_datetime": null,
+        "type": "event",
+        "tags": [
+            "music"
+        ],
+        "is_free": false,
+        "ticket_link": "http://www.lippu.fi/Tickets.html?affiliate=ADV&doc=artistPages%2Ftickets&fun=artist&action=tickets&erid=1723276&includeOnlybookable=false&x10=1&x11=joulu%20soikoon",
+        "is_public": true,
+        "has_articles": false,
+        "single_datetime": false,
+        "times": [
+            {
+                "id": 8311,
+                "start_datetime": 1481130000000,
+                "end_datetime": 1481147999999
+            },
+            {
+                "id": 8312,
+                "start_datetime": 1481821200000,
+                "end_datetime": 1481839199999
+            }
+        ],
+        "form_contact_info": null,
+        "is_in_moderation": false
+    }
 ]

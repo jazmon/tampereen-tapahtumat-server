@@ -30,8 +30,14 @@ export function geocodeEvents(events: Array<Event>) {
     const promises = events.map((event: Event) =>
       new Promise((res, rej) => {
         geocodeAddress(event.contactInfo.address)
-          .then((latLng: LatLng) => {
-            res({ ...event, latLng });
+          .then((latLng: { lat: number; lng: number}) => {
+            res({
+              ...event,
+              latLng: {
+                latitude: latLng.lat,
+                longitude: latLng.lng,
+              },
+            });
           })
           .catch(err => {
             rej(err);

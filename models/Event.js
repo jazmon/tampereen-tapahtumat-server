@@ -1,5 +1,10 @@
 const createEvent = (sequelize, DataTypes) => {
   const Event = sequelize.define('Event', {
+    apiID: {
+      type: DataTypes.STRING,
+      unique: true,
+      alloNull: false,
+    },
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
     latitude: {

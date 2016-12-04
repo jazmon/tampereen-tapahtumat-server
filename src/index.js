@@ -7,13 +7,22 @@ import {
   fetchEvents,
 } from './fetchEvents';
 
+import { Event, ContactInfo, Image, FormContactInfo } from '../models';
+
+
 const app = express();
 const pe = new PrettyError();
 
 app.use(morgan('combined'));
 app.use(helmet());
 
-app.get('/', (req, res) => {
+
+app.get('/', async (req, res) => {
+  const events = await Event.findAll();
+  return res.status(200).json(events);
+});
+
+app.get('/apiproxy', (req, res) => {
   fetchEvents()
     .then(events => res.json(events))
     .catch(err => res.status(500).send('error', JSON.stringify(err)));

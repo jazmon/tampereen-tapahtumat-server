@@ -75,7 +75,7 @@ export function parseEvent(vtEvent: VTEvent): Event {
       title: _.get(vtEvent, 'image.title', null),
       uri: _.get(vtEvent, 'image.src', null),
     },
-    latlng: null,
+    latLng: null,
   };
   return event;
 }
