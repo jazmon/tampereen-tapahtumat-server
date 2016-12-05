@@ -3,7 +3,7 @@ import moment from 'moment';
 import _ from 'lodash';
 import 'isomorphic-fetch';
 
-const apiLocale = 'en';
+const apiLocale = 'fi';
 const API_URL_BASE = 'http://visittampere.fi/api/search?type=event';
 
 
