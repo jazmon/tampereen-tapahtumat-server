@@ -8,7 +8,7 @@ import {
   geocodeEvents,
 } from '../src/geocodeEvent';
 
-import mockEvents from '../mockdata/mockresponse.json';
+// import mockEvents from '../mockdata/mockresponse.json';
 
 import {
   Event,
@@ -36,19 +36,21 @@ const sync = async () => {
 
   // events = events.filter(event => !!event.latLng);
 
-  events.forEach(async e => {
-    console.log('e', e);
+  const promises = events.map(async e => {
+    // console.log('e', e);
     // TODO transactions
     try {
       const event = await Event.create({
         apiID: e.id,
         title: e.title,
         description: e.description,
-        latitude: e.latLng.latitude,
-        longitude: e.latLng.longitude,
+        latitude: e.latLng && e.latLng.latitude && e.latLng.longitude ? e.latLng.latitude : null,
+        longitude: e.latLng && e.latLng.latitude && e.latLng.longitude ? e.latLng.longitude : null,
+        // latitude: e.latLng.latitude,
+        // longitude: e.latLng.longitude,
         times: e.times.map(time => ({
-          start: time.start,
-          end: time.end,
+          start: new Date(time.start).toISOString(),
+          end: new Date(time.end).toISOString(),
         })),
         // seems like there's always just 1 tag, which is the type
         type: e.tags[0],
@@ -91,7 +93,15 @@ const sync = async () => {
       console.error('error', err);
     }
   });
-  // sequelize.close();
+  Promise.all(promises)
+    .then((values) => {
+      console.log('Added all events to database', values.length);
+      sequelize.close();
+    })
+    .catch(err => {
+      console.error(err);
+      sequelize.close();
+    });
 };
 
 export default sync;

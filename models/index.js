@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
+const dataloaderSequelize = require('dataloader-sequelize').default;
 
 const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || 'development';
@@ -19,9 +20,11 @@ if (process.env.DATABASE_URL) {
     host: match[3],
     logging: true, // false
   });
+  dataloaderSequelize(sequelize);
 } else {
   sequelize = new Sequelize(config.database, config.username,
      config.password, config);
+  dataloaderSequelize(sequelize);
 }
 
 fs.readdirSync(__dirname)

@@ -58,6 +58,9 @@ type RootQueryType {
 
 # The start and end of the event
 type Time {
-  start: String
-  end: String
+  # The start of the event.
+  start: String!
+
+  # The end of the event.
+  end: String!
 }

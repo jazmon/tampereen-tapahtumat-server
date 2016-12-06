@@ -1,16 +1,25 @@
 // @flow
-import moment from 'moment';
-import _ from 'lodash';
+// import _ from 'lodash';
+import _get from 'lodash/get';
 import 'isomorphic-fetch';
+import startOfDay from 'date-fns/start_of_day';
+import addDays from 'date-fns/add_days';
+import endOfDay from 'date-fns/end_of_day';
 
 const apiLocale = 'fi';
 const API_URL_BASE = 'http://visittampere.fi/api/search?type=event';
 
+export const start = (num: number = 0): number =>
+  startOfDay(addDays(new Date(), num)).getTime();
 
-export const start = (num: number = 0) =>
-  moment().add(num, 'days').startOf('day').valueOf();
-export const end = (num: number = 6) =>
-  moment().add(num, 'days').endOf('day').valueOf();
+export const end = (num: number = 6): number =>
+  endOfDay(addDays(new Date(), num)).getTime();
+
+
+// export const start = (num: number = 0) =>
+//   moment().add(num, 'days').startOf('day').valueOf();
+// export const end = (num: number = 6) =>
+//   moment().add(num, 'days').endOf('day').valueOf();
 
 export function checkStatus(response: Response) {
   if (response.status >= 200 && response.status < 300) {
@@ -60,16 +69,15 @@ export function parseEvent(vtEvent: VTEvent): Event {
         .map(time => ({
           start: time.start_datetime,
           end: time.end_datetime,
-        }))
-        .filter(time => {
-          const now = moment();
-          const bool = moment(time.start).isBetween(
-            moment(now).subtract(1, 'days'),
-            moment(now).add(7, 'days')
-          );
-          return bool;
-        }
-      ),
+        })),
+        // .filter(time => {
+        //   const now = moment();
+        //   const bool = moment(time.start).isBetween(
+        //     moment(now).subtract(1, 'days'),
+        //     moment(now).add(7, 'days')
+        //   );
+        //   return bool;
+        // }),
     free: vtEvent.is_free,
     ticketLink: vtEvent.ticket_link,
     contactInfo: {
@@ -79,15 +87,15 @@ export function parseEvent(vtEvent: VTEvent): Event {
       link: vtEvent.contact_info.link,
     },
     formContactInfo: {
-      email: _.get(vtEvent, 'form_contact_info.email', null),
-      phone: _.get(vtEvent, 'form_contact_info.phone', null),
-      name: _.get(vtEvent, 'form_contact_info.name', null),
-      jobTitle: _.get(vtEvent, 'form_contact_info.jobTitle', null),
+      email: _get(vtEvent, 'form_contact_info.email', null),
+      phone: _get(vtEvent, 'form_contact_info.phone', null),
+      name: _get(vtEvent, 'form_contact_info.name', null),
+      jobTitle: _get(vtEvent, 'form_contact_info.jobTitle', null),
     },
     tags: vtEvent.tags,
     image: {
-      title: _.get(vtEvent, 'image.title', null),
-      uri: _.get(vtEvent, 'image.src', null),
+      title: _get(vtEvent, 'image.title', null),
+      uri: _get(vtEvent, 'image.src', null),
     },
     latLng: null,
   };

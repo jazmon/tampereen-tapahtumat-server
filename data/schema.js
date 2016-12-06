@@ -21,10 +21,11 @@ const {
 } = require('../models');
 
 typeMapper.mapType((type) => {
-  // map bools as strings
   if (type instanceof Sequelize.REAL) {
     return GraphQLFloat;
-  }
+  } /* else if (type instanceof Sequelize.BIGINT) {
+    return GraphQLInt;
+  }*/
   // use default for everything else
   return false;
 });
@@ -32,7 +33,17 @@ typeMapper.mapType((type) => {
 const GraphQLTime = new GraphQLObjectType({
   name: 'Time',
   description: 'The start and end of the event',
-  fields: attributeFields(Time, { only: ['start', 'end'] }),
+  // fields: attributeFields(Time, { only: ['start', 'end'] }),
+  fields: {
+    start: {
+      type: new GraphQLNonNull(GraphQLString),
+      description: 'The start of the event.',
+    },
+    end: {
+      type: new GraphQLNonNull(GraphQLString),
+      description: 'The end of the event.',
+    },
+  },
 });
 
 const GraphQLContactInfo = new GraphQLObjectType({
