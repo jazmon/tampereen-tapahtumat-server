@@ -134,7 +134,7 @@ type GetUrlProps = {
 };
 
 export const getUrl = ({ startDate = start, endDate = end }: GetUrlProps) =>
-    `${API_URL_BASE}&limit=20&start_datetime=${startDate()}&end_datetime=${endDate()}&lang=${apiLocale}`;
+    `${API_URL_BASE}&limit=1000&start_datetime=${startDate()}&end_datetime=${endDate()}&lang=${apiLocale}`;
 
 
 export const fetchEvents = () => new Promise((resolve, reject) => {
