@@ -1,6 +1,6 @@
 // @flow
-// import _ from 'lodash';
 import _get from 'lodash/get';
+import _unionWith from 'lodash/unionWith';
 import 'isomorphic-fetch';
 import startOfDay from 'date-fns/start_of_day';
 import addDays from 'date-fns/add_days';
@@ -14,12 +14,6 @@ export const start = (num: number = 0): number =>
 
 export const end = (num: number = 6): number =>
   endOfDay(addDays(new Date(), num)).getTime();
-
-
-// export const start = (num: number = 0) =>
-//   moment().add(num, 'days').startOf('day').valueOf();
-// export const end = (num: number = 6) =>
-//   moment().add(num, 'days').endOf('day').valueOf();
 
 export function checkStatus(response: Response) {
   if (response.status >= 200 && response.status < 300) {
@@ -70,14 +64,6 @@ export function parseEvent(vtEvent: VTEvent): Event {
           start: time.start_datetime,
           end: time.end_datetime,
         })),
-        // .filter(time => {
-        //   const now = moment();
-        //   const bool = moment(time.start).isBetween(
-        //     moment(now).subtract(1, 'days'),
-        //     moment(now).add(7, 'days')
-        //   );
-        //   return bool;
-        // }),
     free: vtEvent.is_free,
     ticketLink: vtEvent.ticket_link,
     contactInfo: {
@@ -138,15 +124,22 @@ export const getUrl = ({ startDate = start, endDate = end }: GetUrlProps) =>
 
 
 export const fetchEvents = () => new Promise((resolve, reject) => {
-  fetch(getUrl({ startDate: start, endDate: end }))
-  .then(checkStatus)
-  .then(parseJSON)
-  .then(data => {
-    resolve(data);
-  })
-  .catch(err => {
-    reject(err);
-  });
+  const promises = [0, 1, 2, 3, 4, 5, 6]
+    .map((i) => getUrl({ startDate: start.bind(null, i), endDate: end.bind(null, i) }))
+    .map(url => new Promise((res, rej) => {
+      fetch(url)
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(res)
+        .catch(rej);
+    }));
+  Promise.all(promises)
+    .then(data => {
+      const unique = _unionWith(...data, 'id');
+      // const flattened = data.reduce((a, b) => a.concat(b), []);
+      resolve(unique);
+    })
+    .catch(err => reject(err));
 });
 
 export default fetchEvents;
