@@ -32,7 +32,7 @@
   "dependencies": {
     "@google/maps": "^0.3.0",
     "babel-cli": "^6.18.0",
-    "babel-plugin-istanbul": "^3.0.0",
+    "babel-plugin-istanbul": "^4.0.0",
     "babel-plugin-lodash": "^3.2.10",
     "babel-plugin-transform-flow-strip-types": "^6.18.0",
     "babel-polyfill": "^6.16.0",
