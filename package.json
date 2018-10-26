@@ -16,7 +16,9 @@
     "lint:fix": "eslint src models data --fix",
     "heroku-postbuild": "npm run clean && npm run build",
     "sync": "babel-node bin/sync",
-    "updateSchema": "node scripts/updateSchema.js"
+    "updateSchema": "node scripts/updateSchema.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "description": "a server for tampereen-tapahtumat",
   "main": "index.js",
@@ -46,7 +48,7 @@
     "dataloader-sequelize": "^1.4.3",
     "date-fns": "^1.12.1",
     "dotenv": "^2.0.0",
-    "express": "^4.14.0",
+    "express": "^4.15.5",
     "express-graphql": "^0.6.1",
     "express-slash": "^2.0.1",
     "graphql": "^0.8.2",
@@ -64,8 +66,9 @@
     "response-time": "^2.3.2",
     "rimraf": "^2.5.4",
     "sequelize": "^3.27.0",
-    "sequelize-cli": "^2.4.0",
-    "view-helpers": "^0.1.5"
+    "sequelize-cli": "^3.0.0",
+    "view-helpers": "^0.1.5",
+    "snyk": "^1.105.0"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
@@ -86,5 +89,6 @@
     "mocha": "^3.2.0",
     "nyc": "^10.0.0",
     "sinon": "^1.17.6"
-  }
+  },
+  "snyk": true
 }
